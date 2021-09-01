@@ -1,4 +1,50 @@
 .table_border{
-    border: 1px solid black;
-    border-collapse:collapse ;
+  border: 1px solid black;
+  border-collapse:collapse ;
+  position:relative;
+  left:300px ;
+  top:-10px;
+  width: 1150px; 
+  height: 80px; 
+}
+
+.table_border td{
+position:relative;
+left: 40px ;
+font-size:30px ;
+}
+
+input[type="text"] {
+ position:relative;
+ left:350px ;
+ top:55px;
+ width: 800px; 
+ height: 50px; 
+ font-size:20px ;
+}
+
+input[type="submit"] {
+  position:relative;
+  left:450px ;
+  top:55px ;
+  width:80px; 
+  height:52px;
+}
+
+
+
+h1{
+padding-top:75px;
+font-size:50px;
+padding-left:500px ;
+
+}
+
+p{
+padding-left:300px ;
+padding-top:50px ;
+font-size:40px ;
+}
+body{
+background-color: rgb(173, 173, 1);
 }

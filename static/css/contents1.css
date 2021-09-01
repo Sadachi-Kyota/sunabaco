@@ -1,9 +1,160 @@
-.circle{
-    width: 80px;
-    height: 80px;
+.circleA{
+    width: 250px;
+    height:250px;
     border-radius: 50%;
-    background-color: #F8D0FA;
+    background-color:wheat;
     text-align: center;
     line-height: 50px;
     float: left;
+    position:absolute;
+    top:275px;
+    right:1485px; 
+   
+}
+
+.circleB{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:275px;
+    right: 1065px; 
+    
+}
+
+.circleC{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:275px;
+    right:645px; 
+}
+
+.circleD{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:275px;
+    right: 225px; 
+}
+
+.circleE{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:650px;
+    right:1485px; 
+}
+
+.circleF{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:650px;
+    right: 1065px 
+}
+
+.circleG{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:650px;
+    right: 645px; 
+}
+
+.circleH{
+    width: 250px;
+    height:250px;
+    border-radius: 50%;
+    background-color:wheat
+;
+    text-align: center;
+    line-height: 50px;
+    float: left;
+    position:absolute;
+    top:650px;
+    right:225px; 
+  
+}
+
+
+.circleA p {
+    padding-top:65px ;
+    font-size:30px ;
+    
+}
+
+.circleB p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+.circleC p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+.circleD p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+.circleE p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+.circleF p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+.circleG p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+.circleH p{
+    padding-top:65px ;
+    font-size:30px ;
+}
+
+h1{
+    font-size:70px;
+    padding-left:30px ;
+    padding-top:30px ;
+    text-align: center
+}
+
+body{
+    background-color: rgb(173, 173, 1);
 }

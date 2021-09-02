@@ -11,11 +11,13 @@
 <body>
     <h1>HTML用語検索画面</h1>
     <table border="1">
+        {% for item in cnt_keyword %}
         <tr>
-            <td>{{cnt_keyword}}</td>
-            <td>{{cnt_text}}</td>
-            <td>{{cnt_url}}</td>
+            <td>{{item["cnt_keyword"]}}</td>
+            <td>{{item["cnt_text"]}}</td>
+            <td>{{item["cnt_url"]}}</td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

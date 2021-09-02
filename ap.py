@@ -32,6 +32,23 @@ def login_post():
         session["user_id"] = user_id
         return redirect('/contents1')
 
+@app.route('/add1')
+def add_get():
+    return render_template('htmladd.html')
+
+@app.route('/add1', methods = ["POST"])
+def add_post():
+    task =request.form.get('cnt_keyword')
+    task1 = request.form.get('cnt_text')
+    task2 = request.form.get('cnt_url')
+    connect = sqlite3.connect('sunabaco.db')
+    cursor = connect.cursor()
+    cursor.execute("INSERT INTO cnt_tbl VALUES (null,null,1,73,?,?,?,null)", (task,task1,task2,) )
+    print(task1)
+    connect.commit()
+    connect.close()
+    return redirect('/contents1')
+
 @app.route('/contents1')
 def contents1():
     if "user_id" in session:
@@ -75,15 +92,15 @@ def html2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('html2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('html2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
     else:
         return redirect('/login')
 
@@ -104,15 +121,15 @@ def css2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 2 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('css2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('css2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
     else:
         return redirect('/login')
 
@@ -133,15 +150,15 @@ def js2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 3 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('js2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('js2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
 
 @app.route('/jquery')
 def jquery():
@@ -161,15 +178,15 @@ def jquery2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 4 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('jquery2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('jquery2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
 
 @app.route('/github')
 def github():
@@ -188,15 +205,15 @@ def github2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 5 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('github2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('github2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
 
 
 @app.route('/python')
@@ -216,15 +233,15 @@ def python2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 6 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('python2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('python2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
 
 @app.route('/flask')
 def flask():
@@ -243,15 +260,15 @@ def flask2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 7 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('flask2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('flask2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name) 
     
 
 @app.route('/other')
@@ -271,15 +288,15 @@ def other2(top_crt_id):
         cursor = connect.cursor()
         cursor.execute("SELECT user_name FROM user_tbl WHERE id = ?", (user_id,) )
         user_name = cursor.fetchone()[0]
-        cursor.execute("SELECT cnt_keyword  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_keyword = cursor.fetchone()
-        cursor.execute("SELECT cnt_text FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_text = cursor.fetchall()
-        cursor.execute("SELECT cnt_url  FROM cnt_tbl WHERE yogo_id = 1 and top_crt_id = ?" , (top_crt_id,))
-        cnt_url = cursor.fetchall()
+        cursor.execute("SELECT cnt_keyword, cnt_text, cnt_url  FROM cnt_tbl WHERE yogo_id = 8 and top_crt_id = ?" , (top_crt_id,))
+        cnt_keyword = cursor.fetchall()
+        cnt_keyword_listType = []
+        for row in cnt_keyword:
+            cnt_keyword_listType.append({"cnt_keyword":row[0],"cnt_text":row[1],"cnt_url":row[2]})
         print(cnt_keyword)
+        print(cnt_keyword_listType)
         connect.close()
-        return render_template('other2.html',cnt_keyword = cnt_keyword, cnt_text = cnt_text, cnt_url = cnt_url, user_name = user_name)
+        return render_template('other2.html',cnt_keyword = cnt_keyword_listType, user_name = user_name)
 
 
 @app.route('/contents3/<int:top_crt_id>')

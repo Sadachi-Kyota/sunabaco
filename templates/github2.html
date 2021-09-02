@@ -9,12 +9,15 @@
 
 </head>
 <body>
-    <h1>（データベースの値）用語検索画面</h1>
-        <p><a href=>○（データベースの用語）</a>（データベースの内容）</p>
-        <p> <a href="">○（データベースの用語）</a>（データベースの内容）</p>
-        <p> <a href="">○（データベースの用語）</a>（データベースの内容）</p>
-       <p> <a href="">○（データベースの用語）</a>（データベースの内容）</p>
-       <p> <a href="">○（データベースの用語）</a>（データベースの内容）</p>
-       <p><a href="">○（データベースの用語）</a>（データベースの内容）</p>
+    <h1>HTML用語検索画面</h1>
+    <table border="1">
+        {% for item in cnt_keyword %}
+        <tr>
+            <td>{{item["cnt_keyword"]}}</td>
+            <td>{{item["cnt_text"]}}</td>
+            <td>{{item["cnt_url"]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>

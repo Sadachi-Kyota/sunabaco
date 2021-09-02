@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="..//static/css/contents3.css">
+    <title>add</title>
+
+</head>
+<body>
+    <h1>用語追加画面</h1>
+    <form action="/add1" method="POST">
+        <p>用語キーワード</p><input type="text" size="100" maxlength="100" name="cnt_keyword">
+        <br><p>用語内容</p><input type="text" size="100" maxlength="100" name="cnt_text">
+        <br><p>用語URL</p><input type="text" size="100" maxlength="100" name="cnt_url">
+        <br><input type="submit" name="save" value="送信">
+    </form>
+</body>
+</html>

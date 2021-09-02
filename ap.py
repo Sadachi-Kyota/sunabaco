@@ -43,7 +43,7 @@ def add_post():
     task2 = request.form.get('cnt_url')
     connect = sqlite3.connect('sunabaco.db')
     cursor = connect.cursor()
-    cursor.execute("INSERT INTO cnt_tbl VALUES (null,null,1,73,?,?,?,null)", (task,task1,task2,) )
+    cursor.execute("INSERT INTO cnt_tbl VALUES (null,null,1,77,?,?,?,null)", (task,task1,task2,) )
     print(task1)
     connect.commit()
     connect.close()

@@ -15,7 +15,7 @@
         <tr>
             <td>{{item["cnt_keyword"]}}</td>
             <td>{{item["cnt_text"]}}</td>
-            <td>{{item["cnt_url"]}}</td>
+            <td><a href="{{item['cnt_url']}}">{{item["cnt_url"]}}</a></td>
         </tr>
         {% endfor %}
     </table>
